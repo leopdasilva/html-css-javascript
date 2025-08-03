@@ -1,0 +1,258 @@
+@charset "UTF-8";
+/* Fontes */
+@font-face {
+    font-family: 'idroid';
+    src: url(../fontes/idroid.otf);
+}
+@font-face {
+    font-family: 'BebasNeue';
+    src: url(../fontes/BebasNeue.otf);
+}
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Configurações de corpo */
+body {
+    background-color: #84E1AD;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+/* Inicio das configurações do cabeçalho */
+
+/* Para o fundo do header */
+header {
+    background-image: linear-gradient(to bottom, #2b9e5f, #123f26);
+    width: 100%;
+    padding: 30px 20px 20px 20px;
+    box-shadow: 0px 5px 5px 1px rgba(0, 0, 0, 0.212);
+    text-align: center;
+}
+/* Para o título e subtítulo */
+header > h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 5px;
+    text-shadow:  2px 2px 4px rgba(0, 0, 0, 0.473);
+    font-family: 'BebasNeue';
+    font-size: 2.5em;
+}
+header > p {
+    color: white;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    text-shadow:  2px 2px 4px rgba(0, 0, 0, 0.473);
+    max-width: 500px;    
+}
+/* Para os links de navegação no cabeçalho */
+nav {
+    padding-top: 10px;
+    text-align: left;
+}
+nav > a {
+    color: #80e9af;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+}
+nav > a:hover {
+    color: #1A5C38;
+    background-color: #32b46c;
+    border-radius: 2px;
+    padding: 10px;
+    transition: 0.2s ease-in-out;
+}
+/* Fim das configurações do cabeçalho */
+
+/* Inicio das configurações do corpo*/
+
+/* Para os parágrafos e títulos da parte branca da página */
+main {
+    background-color: white; 
+    max-width: 850px;   
+    width: 90%;
+    margin: 0 auto;
+    padding: 30px;  
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 10px 10px;
+    box-sizing: border-box;
+}
+article > h1 {
+    font-family: 'idroid';
+    color: #227949;
+    margin-top: 2px;
+}
+article > p {
+    text-align: justify;
+    text-indent: 30px;
+    line-height: 1.8;
+}
+article > h2 {
+    font-family: 'idroid';
+    color: #227949;
+    background-image: linear-gradient(to right, #84e1ac93, #ffffff);
+}
+
+/* Para as imagens da página */
+article img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+picture > img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Para o bloco verde da página */
+section {
+    background-color: #aae4c3;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.438);
+    padding-bottom:  20px;
+}
+section > ul {
+    list-style-type: none;
+    list-style-position: inside;
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    padding-left: 20px;
+}
+ul li {
+    margin-bottom: 5px;
+}
+
+/* Para o título do bloco verde da página */
+.titulo-bloco {
+    color: white;
+    font-weight: bold;
+    text-indent: 10px;
+    line-height: 2.5;
+    background-color: #328156;
+    border-radius: 20px 20px 0px 0px;
+}
+
+/* Configuração de parágrafos dentro do bloco verde*/
+.paragrafo {
+    text-align: justify;
+    text-indent: 30px;
+    line-height: 1.8;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Para palavras em destaque */
+.destaque {
+    color: #1A5C38;
+    font-weight: bold;
+}
+
+/* Para colocar underline nas palavras */
+.underline {
+    text-decoration: underline;
+}
+
+/* Para links e para quando o mouse pairar sobre os links  */
+.links {
+    color: #123f26;
+    text-decoration: none;
+    font-weight: bold;
+}
+.links:hover {
+    color: white;
+    background-color: #5ca87e;
+    font-weight: bold;
+}
+
+/* Para encaixar o player de vídeo a area branca da página */
+.video-container {
+   position: relative;
+   padding-bottom: 56.25%;
+   height: 0; 
+   overflow: hidden;
+   margin-left: -30px;
+   margin-right: -30px;
+   margin-top: 30px;
+   margin-bottom: 30px;
+   border: 20px solid #123f26;
+   border-radius: 5px;
+}
+.video-container iframe {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: calc(100% - 16px); 
+    height: calc(100% - 16px); 
+}
+.youtube-button {
+    margin: auto;  
+    padding: 10px;
+    padding-left: 8px;
+    background-color: #123f26;  
+    display: block; 
+    width: fit-content;
+}
+
+/* Para adaptar o conteúdo da página ao tamanho de telas menores, como a de um celular */
+@media (max-width: 768px) {
+    main {
+        width: 95%;
+        padding: 20px;
+        margin: 0px auto;
+    }
+    article > h1{
+        font-size: 1.8em;
+    }
+    article > p {
+        text-indent: 20px;
+    }
+    .video-container {
+        margin: 0 -20px;
+    }
+}
+@media (max-width: 480px) {
+    main {
+        width: 98%;
+        padding: 15px;
+    }
+    .video-container { 
+        margin: 0 -15px;
+    }
+}
+
+/* Fim das configurações de corpo */
+
+/* Inicio das configurações do rodapé */
+
+footer {
+    background-color: #1A5C38;
+    color: white;
+    text-align: center;
+    padding: 2.5px;
+    padding-bottom: 25px;
+    margin-top: 20px;
+    width: 100%;
+}
+footer > a {
+    color: white;
+    text-decoration: none;
+}
+footer > a:hover {
+    text-decoration: underline;
+}
+footer > p {
+    font-style: italic;
+}
+footer > p > span {
+    font-weight: bold;
+}
+
+/* Fim das configurações de rodapé */
+
