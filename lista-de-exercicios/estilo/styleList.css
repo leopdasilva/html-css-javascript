@@ -30,6 +30,10 @@ header > h1 {
     margin: 10px 0;
 }
 
+header a {
+    color: blue;
+}
+
 nav {
     background-color: lightcyan;
     max-width: 800px;
