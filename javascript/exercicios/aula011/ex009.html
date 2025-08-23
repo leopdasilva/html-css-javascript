@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../favicon-doge.ico" type="image/x-icon">
+    <title>Nacionalidade</title>
+</head>
+<body>
+    <h1>Nacionalidade</h1>
+    Pais de Nascimento: <input type="text" name="txtnac" id="txtnac">
+    <input type="button" value="Vereficar" onclick="VerNacionalidade()">
+    <div id="res"></div>
+    
+    <script>
+        function VerNacionalidade() {
+            var nac = window.document.querySelector('#txtnac') // pega o input
+            var res = window.document.querySelector('#res')// pega a div de resultado
+            var valor = nac.value.trim()// pega o texto digitado e remove espaços
+            if (valor.toLowerCase() === 'brasil') {
+                res.innerHTML = `<p>Sua nacionalidade é <strong>Brasileira!</strong></p>`
+            } else {
+                res.innerHTML = `<p>Sua nacionalidade é <strong>Estrangeira!</strong></p>`
+            }
+        }
+    </script>
+    <hr>
+    <a href="../../../lista-de-exercicios/Lista_exercícios_e_desafios.html">Ir para a lista de exercícios</a>
+</body>
+</html>
