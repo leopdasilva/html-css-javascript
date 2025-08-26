@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situação do Tempo</title>
+    <style>
+        body {
+            font-size: 2rem;
+        }
+        input {
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Clima</h1>
+    <p>
+        Insira a Temperatura:
+        <input type="number" name="txtclima" id="txtclima">
+        <input type="button" value="Vereficar" onclick="Clima()">
+        <div id="res"></div>
+    </p>
+    <script>
+       function Clima() {
+            var txtclima = window.document.querySelector('#txtclima') 
+            var res = window.document.querySelector('#res')
+            var clima = Number(txtclima.value)
+            if (clima > 0) {
+                res.innerHTML = `Está fazendo ${clima}°C. Temperatura amena.`
+            } else {
+                res.innerHTML = `Está fazendo ${clima}°C. Está <strong>congelando</strong>.`
+            }
+       }
+    </script>
+</body>
+</html>
