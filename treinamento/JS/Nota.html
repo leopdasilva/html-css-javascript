@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Nota</title>
+</head>
+<body>
+    <h1>Verificador de Nota</h1>
+    <p>
+        Digite a nota: 
+        <input type="number" name="txtNota" id="txtNota">
+        <input type="button" value="Vereficar" onclick="Nota()">
+        <div id="res"></div>
+    </p>
+
+    <script>
+        function Nota() {
+            var txtNota = window.document.querySelector('#txtNota')
+            var res = window.document.querySelector('#res')
+            var nota = Number(txtNota.value)
+            if (nota >= 7){
+                res.innerHTML = `Sua nota é <strong>${nota}</strong>. Você está <strong>ACIMA</strong> da média.`
+            } else {
+                res.innerHTML = `Sua nota é <strong>${nota}</strong>. Você está <strong>ABAIXO</strong> da média.`
+            }
+        }
+    </script>
+</body>
+</html>
