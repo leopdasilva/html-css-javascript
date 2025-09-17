@@ -64,7 +64,13 @@ section {
     margin-top: -15px;
 }
 
-article > h1 {
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.html_css {
     padding: 8px;
     text-align: center;
     background-color: rgba(184, 135, 11, 0.479);
@@ -73,12 +79,25 @@ article > h1 {
     font-size: 2rem;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-a:hover {
+.html_css_link a:hover {
     text-decoration: underline;
     color: darkgoldenrod;
 }
+
+
+.js {
+    padding: 8px;
+    text-align: center;
+    background-color: rgba(45, 62, 192, 0.479);
+    border-radius: 5px;
+    border-style: groove;
+    font-size: 2rem;
+}
+
+.jslink a:hover {
+    text-decoration: underline;
+    color: rgba(44, 58, 158, 0.9);  
+}
+
+
+
