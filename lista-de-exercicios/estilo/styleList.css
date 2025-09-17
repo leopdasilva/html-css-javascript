@@ -36,6 +36,7 @@ header a {
 
 nav {
     background-color: lightcyan;
+    font-weight: bold;
     max-width: 800px;
     margin: 15px auto 25px auto;
     padding: 10px;
@@ -44,6 +45,10 @@ nav {
     box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.212);
     text-align: center;
     font-size: 1.3em;
+}
+
+nav br {
+    margin: 5px;
 }
 
 main {
@@ -67,6 +72,11 @@ section {
 a {
     text-decoration: none;
     color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: rgba(89, 182, 224, 0.9);
 }
 
 
@@ -98,6 +108,8 @@ a {
     text-decoration: underline;
     color: rgba(44, 58, 158, 0.9);  
 }
+
+
 
 
 
