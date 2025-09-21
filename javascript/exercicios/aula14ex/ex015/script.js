@@ -1,27 +1,36 @@
 function contador () {
-    var inicio = window.document.getElementById('txtinicio')
-    var fim = window.document.getElementById('txtfim')
-    var passo = window.document.getElementById('txtpasso')
-    var res = document.querySelector('div#res')
+    let inicio = window.document.getElementById('txtinicio')
+    let fim = window.document.getElementById('txtfim')
+    let passo = window.document.getElementById('txtpasso')
+    let res = document.querySelector('div#res')
 
     if (inicio.value.length === 0 || fim.value.length === 0 || passo.value.length === 0) {
-        res.innerHTML = 'Impossível contar! Preencha todos os campos!';
-        return;
-    }
-
-    var inicioval = Number.parseInt(inicio.value)
-    var fimval = Number.parseInt(fim.value)
-    var passoval = Number.parseInt(passo.value)
-
-    res.innerHTML = '' 
-
-    if (passoval <= 0) {
-        window.alert('Passo inválido, considerando PASSO 1')
+        res.innerHTML = 'Impossível contar! Preencha todos os campos!'
+        window.alert('[ERRO] Faltam dados!')
     } else {
-        for (var i = inicioval; i <=  fimval; i += passoval) {
-           res.innerHTML += `${i} 👉` 
+        res.innerHTML = 'Contando... <br>'
+        let inicioval = Number(inicio.value)
+        let fimval = Number(fim.value)
+        let passoval = Number(passo.value)
+
+        if (passoval <= 0) {
+            window.alert('Passo inválido! Considerando PASSO 1')
+            passoval = 1
         }
-        res.innerHTML += `🏁` 
+
+        if (inicioval < fimval) {
+            //Contagem crescente
+            for (let i = inicioval; i <= fimval; i += passoval) {
+                res.innerHTML += ` ${i} 👉 `
+            }
+        } else {
+            //Comtagem decrescente
+            for (let i = inicioval; i >= fimval; i -= passoval) {
+                res.innerHTML += ` ${i} 👉 `
+            }
+        }
+        res.innerHTML += ` 🏁 `
     }
+
     
 }
