@@ -83,7 +83,7 @@ a:hover {
 .html_css {
     padding: 8px;
     text-align: center;
-    background-color: rgba(184, 135, 11, 0.479);
+    background-color: #b8870b7a;
     border-radius: 5px;
     border-style: groove;
     font-size: 2rem;
@@ -108,6 +108,39 @@ a:hover {
     text-decoration: underline;
     color: rgba(44, 58, 158, 0.9);  
 }
+
+
+#scrollTopBtn {
+    position: fixed;
+    right: 1rem;
+    bottom: 1.5rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #b8870b7a, #0b9bd6);
+    color: #fff;
+    border: none;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 6px 14px rgba(11,116,222,0.25);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .25s ease, transform .25s ease;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+#scrollTopBtn svg { 
+    width: 20px; height: 20px; 
+
+}
+#scrollTopBtn.visible {
+     opacity: 1; transform: translateY(0);
+}
+#scrollTopBtn:focus { 
+    outline: 2px solid rgba(255,255,255,0.2); outline-offset: 2px; 
+}
+
 
 
 

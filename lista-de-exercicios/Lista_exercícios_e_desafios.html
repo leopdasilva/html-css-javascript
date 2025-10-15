@@ -20,7 +20,7 @@
             <a href="#js">JavaScript</a> <br>
         </p>
     </nav>
-    <main>
+    <main>      
         <section>
             <article>
                 <h1 id="md1" class="html_css">Atalhos para exercícios e desafios - HTML e CSS: Módulo 01</h1>
@@ -118,7 +118,7 @@
                 </ul>
                 <h2>Desafios</h2>
                 <ul class="html_css_link ">
-                    <li></li>
+                    <li><a href="../html-css/desafios/d014/index.html">Desafio 014 - Redes Sociais</a></li>
                 </ul>
 
                 <h1 id="js" class="js">Atalhos para exercícios e desafios - JavaScript</h1>
@@ -143,5 +143,51 @@
             </article>
         </section>
     </main>
+
+    <!-- Botão de rolagem para o topo -->
+    <button id="scrollTopBtn" aria-label="Voltar ao topo" title="Voltar ao topo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M6 14l6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"
+            />
+        </svg>
+    </button>
+
+    <script>
+        (function() {
+  
+        const scrollButton = document.getElementById('scrollTopBtn');
+    
+        if (!scrollButton) return; 
+
+        const scrollThreshold = 300; 
+
+        const toggleButtonVisibility = () => {
+            if (window.scrollY > scrollThreshold) {
+                scrollButton.classList.add('visible');
+            } else {
+                scrollButton.classList.remove('visible');
+            }
+        };
+
+        const scrollToTop = () => {
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            
+            if (prefersReducedMotion) {
+                window.scrollTo(0, 0);
+            } else {
+                window.scrollTo({ 
+                    top: 0, 
+                    behavior: 'smooth' 
+                });
+            }
+        };
+
+        window.addEventListener('scroll', toggleButtonVisibility, { 
+            passive: true 
+        });
+
+        scrollButton.addEventListener('click', scrollToTop);
+        })();
+    </script>
 </body>
 </html>
