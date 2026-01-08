@@ -2,113 +2,87 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
+:root {
+    --cor-fundo-transparente: rgba(255, 255, 255, 0.8);
+    --cor-destaque-html: #b8870b7a;
+    --cor-destaque-js: rgba(45, 62, 192, 0.479);
+    --sombra-padrao: 1px 5px 5px rgba(0, 0, 0, 0.2);
+    --largura-maxima: 800px;
+}
+
 * {
     font-family: 'Work Sans', Arial, Verdana, sans-serif;
     box-sizing: border-box;
 }
 
+/* --- ESTILOS GERAIS (MOBILE FIRST) --- */
 body {
     background: lightgoldenrodyellow url(../imagens/praia.jpg) center center / cover no-repeat fixed;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+    padding: 10px;
+}
+
+header, nav, main {
+    width: 100%;
+    margin: 15px auto;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: var(--sombra-padrao);
+}
+
+header, nav {
+    background-color: lightcyan;
+    border-style: groove;
+    text-align: center;
+}
+
+header h1 { font-size: 1.4rem; margin: 10px 0; }
+
+nav ul {
+    list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
-header {
-    background-color: lightcyan;
-    max-width: 800px;
-    margin: 15px auto 25px auto;
-    padding: 10px;
-    border-radius: 5px;
-    border-style: groove;
-    box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.212);
-    text-align: center;
-    font-size: 1.3em;
-}
-
-header > h1 {
-    margin: 10px 0;
-}
-
-header a {
-    color: blue;
-}
-
-nav {
-    background-color: lightcyan;
+nav li {
+    margin: 8px 0;
     font-weight: bold;
-    max-width: 800px;
-    margin: 15px auto 25px auto;
-    padding: 10px;
-    border-radius: 5px;
-    border-style: groove;
-    box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.212);
-    text-align: center;
-    font-size: 1.3em;
-}
-
-nav br {
-    margin: 5px;
 }
 
 main {
     background-color: white;
-    max-width: 800px;
-    margin: 0 auto 30px auto;
-    padding: 25px;
-    border-radius: 5px;
-    box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.342);
-    line-height: 1.8rem;
+    line-height: 1.6rem;
 }
 
-main  h1 {
-    line-height: 3rem;
-}
+main h1 { line-height: 2.5rem; margin-top: 0; }
+main h2 { border-bottom: 1px solid #ddd; padding-bottom: 5px; }
 
-section {
-    margin-top: -15px;
-}
+section { margin-bottom: 40px; }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
+a { text-decoration: none; color: inherit; transition: .3s; }
+header a { color: blue; }
+a:hover { text-decoration: underline; color: rgba(89, 182, 224, 0.9); }
 
-a:hover {
-    text-decoration: underline;
-    color: rgba(89, 182, 224, 0.9);
-}
-
-
-.html_css {
-    padding: 8px;
+/* --- COMPONENTES --- */
+.html_css, .js {
+    padding: 15px;
     text-align: center;
-    background-color: #b8870b7a;
     border-radius: 5px;
     border-style: groove;
-    font-size: 2rem;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
 }
 
-.html_css_link a:hover {
-    text-decoration: underline;
-    color: darkgoldenrod;
+.html_css { background-color: var(--cor-destaque-html); }
+.js { background-color: var(--cor-destaque-js); }
+
+.html_css_link, .jslink {
+    list-style-position: inside;
+    padding-left: 5px;
 }
 
-
-.js {
-    padding: 8px;
-    text-align: center;
-    background-color: rgba(45, 62, 192, 0.479);
-    border-radius: 5px;
-    border-style: groove;
-    font-size: 2rem;
-}
-
-.jslink a:hover {
-    text-decoration: underline;
-    color: rgba(44, 58, 158, 0.9);  
-}
-
+.html_css_link li:hover, .jslink li:hover { color: darkgoldenrod; }
 
 #scrollTopBtn {
     position: fixed;
@@ -117,32 +91,123 @@ a:hover {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #b8870b7a, #0b9bd6);
+    background: linear-gradient(135deg, #b8870b, #0b9bd6);
     color: #fff;
     border: none;
     display: grid;
     place-items: center;
-    box-shadow: 0 6px 14px rgba(11,116,222,0.25);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity .25s ease, transform .25s ease;
+    transition: all .25s ease;
     cursor: pointer;
     z-index: 9999;
 }
 
-#scrollTopBtn svg { 
-    width: 20px; height: 20px; 
+#scrollTopBtn.visible { opacity: 1; transform: translateY(0); }
 
-}
-#scrollTopBtn.visible {
-     opacity: 1; transform: translateY(0);
-}
-#scrollTopBtn:focus { 
-    outline: 2px solid rgba(255,255,255,0.2); outline-offset: 2px; 
+/* --- LÓGICA DO MENU HAMBÚRGUER --- */
+
+/* Esconde o checkbox real */
+.menu-checkbox {
+    display: none;
 }
 
+/* Estilização do ícone (o botão em si) */
+.menu-icon {
+    display: block;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    user-select: none;
+    width: fit-content;
+    margin: 0 auto;
+}
 
+/* Criando as 3 linhas com um span e pseudo-elementos */
+.hamburger {
+    background-color: #333;
+    display: block;
+    height: 3px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 25px;
+}
 
+.hamburger::before,
+.hamburger::after {
+    background-color: #333;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
 
+.hamburger::before { top: 8px; }
+.hamburger::after { top: -8px; }
 
+/* Comportamento de esconder/mostrar a lista no Mobile */
+nav ul {
+    display: none; /* Escondido por padrão no celular */
+    flex-direction: column;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
 
+/* Quando o checkbox estiver marcado, mostra o <ul> */
+.menu-checkbox:checked ~ ul {
+    display: flex;
+}
+
+/* Animação do ícone para "X" quando aberto */
+.menu-checkbox:checked ~ .menu-icon .hamburger {
+    background: transparent;
+}
+.menu-checkbox:checked ~ .menu-icon .hamburger::before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+.menu-checkbox:checked ~ .menu-icon .hamburger::after {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+/* --- MEDIA QUERY: DESKTOP --- */
+@media (min-width: 768px) {
+    .menu-icon {
+        display: none; /* Esconde o ícone no desktop */
+    }
+
+    nav ul {
+        display: flex !important; /* Sempre visível no desktop */
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    nav li {
+        margin: 0;
+    }
+}
+
+/* --- MEDIA QUERIES --- */
+
+/* Celular/Tablet (600px+) */
+@media (min-width: 600px) {
+    header h1 { font-size: 1.8rem; }
+    header, nav, main { width: 95%; }
+}
+
+/* Tablet/Desktop (768px+) */
+@media (min-width: 768px) {
+    header, nav, main { max-width: 750px; }
+    nav ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+}
+
+/* Grandes telas (1200px+) */
+@media (min-width: 1200px) {
+    header, nav, main { max-width: 900px; }
+    .html_css, .js { font-size: 2rem; }
+}
