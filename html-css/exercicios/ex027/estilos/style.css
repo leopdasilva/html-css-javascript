@@ -15,8 +15,10 @@
 
 body, html {
     background-color: #5f2c82;
-    height: 100vh;
-    width: 100vh;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 main {
@@ -39,8 +41,7 @@ section#login {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.459);
 
     transition: width 0.3s, height 0.3s; /* Animação para transição de tamanhos */
-    transition-timing-function: ease;
-    
+    transition-timing-function: ease; 
 }
 
 section#login > div#imagem {
@@ -52,20 +53,30 @@ section#login > div#imagem {
 }
 
 section#login > div#formulario {
-    display: flex; /* flex controla melhor o alinhamento */
-    flex-direction: column; /* Coloca os itens um abaixo do outro */
-    justify-content: center; /* Centraliza verticalmente em relação à imagem */
-    padding: 30px; /* Cria o recuo igual em todos os lados */
-    box-sizing: border-box; /* Garante que o padding não estoure a largura */
+    display: block; 
+    padding: 25px 35px;
+    box-sizing: border-box;
 }
 
 /* Talvez apagar essas duas configurações */
-div#formulario > a {
-    display: inline-block; /* Permite que margens funcionem corretamente */
-    margin-top: 15px;
-    padding: 0; /* Remove o padding antigo se preferir controlar via container */
+
+div#formulario > h1 {
+    margin-bottom: 15px; /* Espaço abaixo do título Login */
 }
 
-div#formulario > hr {
-    margin: 15px 0; 
+div#formulario > p {
+    margin-bottom: 20px; /* Espaço abaixo do texto de boas-vindas */
+}
+
+div#formulario > a {
+    display: block;      /* Faz o link respeitar o padding e margens corretamente */
+    margin-top: 15px;
+    width: fit-content;  /* A área clicável fica restrita ao texto */
+    color: #5f2c82;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+div#formulario > a:hover {
+    text-decoration: underline;
 }
