@@ -56,29 +56,73 @@ section#login > div#imagem {
 
 section#login > div#formulario {
     display: block; 
-    padding: 25px 35px;
+    padding: 8px;
     box-sizing: border-box;
 }
 
 /* Talvez apagar essas duas configurações */
 
 div#formulario > h1 {
-    margin-bottom: 15px; /* Espaço abaixo do título Login */
+    margin-bottom: 5px; 
+    text-align: center;
 }
 
 div#formulario > p {
-    margin-bottom: 20px; /* Espaço abaixo do texto de boas-vindas */
+    margin-bottom: 20px; 
+    font-size: 0.8em;
+}
+
+div#formulario > hr {
+    margin: 5px; 
 }
 
 div#formulario > a {
     display: block;      /* Faz o link respeitar o padding e margens corretamente */
-    margin-top: 15px;
+    margin-top: 5px;
     width: fit-content;  /* A área clicável fica restrita ao texto */
     color: #5f2c82;
     font-weight: bold;
     text-decoration: none;
+    font-size: 0.8em;
 }
 
 div#formulario > a:hover {
     text-decoration: underline;
+}
+
+/* Texto oculto para o link */
+
+.link-magico {
+  text-decoration: none;
+  color: #007bff;
+  position: relative;
+}
+
+/* Estado inicial do texto */
+.texto-escondido {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  
+  /* Posicionamento à direita */
+  position: absolute;
+  left: 100%;        /* Começa exatamente onde o link termina */
+  top: 50%;          /* Alinha ao meio da altura */
+  transform: translateY(-50%); /* Centraliza verticalmente de fato */
+  margin-left: 10px; /* Dá um espacinho para não grudar no link */
+  
+  /* Estilo do balão */
+  background: #5f2c82;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 0.9em;
+}
+
+/* Quando o link ganha hover, o span muda */
+.link-magico:hover .texto-escondido {
+  opacity: 1;
+  visibility: visible;
+  left: calc(100% + 15px); /* Pequeno efeito de deslize para a direita */
 }
