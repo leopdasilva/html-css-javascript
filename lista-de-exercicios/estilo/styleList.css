@@ -1,6 +1,5 @@
 @charset "UTF-8";
-
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap');
 
 :root {
     --cor-fundo-transparente: rgba(255, 255, 255, 0.8);
@@ -11,13 +10,13 @@
 }
 
 * {
-    font-family: 'Work Sans', Arial, Verdana, sans-serif;
+    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     box-sizing: border-box;
 }
 
 /* --- ESTILOS GERAIS (MOBILE FIRST) --- */
 body {
-    background: lightgoldenrodyellow url(../imagens/praia.jpg) center center / cover no-repeat fixed;
+    background: lightgoldenrodyellow url(../imagens/praia.jpg) center center / cover no-repeat;
     min-height: 100vh;
     margin: 0;
     padding: 10px;
@@ -33,7 +32,7 @@ header, nav, main {
 
 header, nav {
     background-color: lightcyan;
-    border-style: groove;
+    border: 1px solid rgba(0,0,0,0.1); 
     text-align: center;
 }
 
@@ -204,6 +203,12 @@ nav ul {
 @media (min-width: 768px) {
     header, nav, main { max-width: 750px; }
     nav ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+}
+
+@media (min-width: 1024px) {
+    body {
+        background-attachment: fixed;
+    }
 }
 
 /* Grandes telas (1200px+) */
