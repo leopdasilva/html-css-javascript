@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexible Box</title>
+    <style>
+        div.container {
+            background-color: lightsalmon;
+            display: flex;
+            flex-flow: row nowrap;
+       }
+
+        div.item {
+            background-color: lightskyblue;
+            border:  1px solid black;
+            text-align: center;
+        }
+
+        div#cxA {
+            /*flex-grow: 1;
+           flex-shrink: 0; 
+           flex-basis: 200px;*/
+
+           flex: 0 1 200px; /* Valor padrão: 0 1 auto*/
+        }
+        div#cxB {
+            /*flex-grow: 1;
+           flex-shrink: 1; 
+           flex-basis: 150px;*/
+
+           flex: 1 1 150px;
+        }
+        div#cxC {
+            /*flex-grow: 1;
+           flex-shrink: 3; 
+           flex-basis: 200px;*/
+
+           flex: 1 8 auto;
+        }
+
+
+        /* 
+    * GUIA RÁPIDO: Atalhos da Propriedade 'flex'
+    * A sintaxe é: flex: <flex-grow> <flex-shrink> <flex-basis>
+    * ---------------------------------------------------------
+    */
+
+    /* flex: initial -> O item não cresce, mas pode encolher se necessário. */
+    /* Equivalente a: flex: 0 1 auto; */
+
+    /* flex: none -> O item é totalmente rígido (tamanho fixo). */
+    /* Equivalente a: flex: 0 0 auto; */
+
+    /* flex: auto -> O item cresce e encolhe conforme o espaço disponível. */
+    /* Equivalente a: flex: 1 1 auto; */
+
+    /* flex: <número> -> Define apenas o fator de crescimento (grow). */
+    /* Exemplo: flex: 3; é equivalente a flex: 3 1 0; (Nota: o padrão do basis muda para 0 quando omitido) */
+    /* Se você quiser manter o comportamento 'auto', use explicitamente: flex: 3 1 auto; */
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item" id="cxA">A</div>
+        <div class="item" id="cxB">B</div>
+        <div class="item" id="cxC">C</div>
+    </div>
+    <hr>
+    <a href="../../../../lista-de-exercicios/Lista_exercícios_e_desafios.html">Ir para a lista de exercícios</a>
+</body>
+</body>
+</html>
