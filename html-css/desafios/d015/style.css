@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    display: grid;
+    gap: 10px; /* Espaço entre as seções */
+    grid-template-areas: 
+        "topo topo"
+        "menu menu"
+        "principal secundario"
+        "rodape rodape";
+    grid-template-columns: 2fr 1fr; /* Coluna principal é 2x maior que a secundária */
+    grid-template-rows: 80px 50px 300px 60px; /* Alturas das seções */
+}
+
+/* Estilo e Cor de cada seção */
+.topo { 
+    grid-area: topo; 
+    background-color: #e67e22; /* Laranja */
+    display: flex; align-items: center; justify-content: center;
+}
+
+.menu { 
+    grid-area: menu; 
+    background-color: #2ecc71; /* Verde */
+    display: flex; align-items: center; justify-content: center;
+}
+
+.principal { 
+    grid-area: principal; 
+    background-color: #3498db; /* Azul */
+    display: flex; align-items: center; justify-content: center;
+}
+
+.secundario { 
+    grid-area: secundario; 
+    background-color: #9b59b6; /* Roxo */
+    display: flex; align-items: center; justify-content: center;
+}
+
+.rodape { 
+    grid-area: rodape; 
+    background-color: #34495e; /* Cinza escuro */
+    display: flex; align-items: center; justify-content: center;
+}
